@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問卷表單</title>
+    <link rel="stylesheet" href="問卷表單.css">
+</head>
+
+<body>
+    <div class="w header"></div>
+
+    <div class="box">
+        <div>
+            <h1>線上訂位調查</h1>
+            <div class="caption">
+                <h2>路邊攤</h2>
+                <p>歡迎光臨</p>
+            </div>
+
+            <form action="" method="POST">
+                <div>
+                    <h4>用餐時段、地點</h4>
+                    <div class="eatDate">
+                        <p><span>*</span>用餐日期</p>
+                        <input type="date" required>
+                    </div>
+
+                    <div class="eatWhere">
+                        <p><span>*</span>用餐地點</p>
+                        <div class="where">
+                            <ul>
+                                <label for="acrossFromSchool">
+                                    <li>
+                                        <input type="radio" name="where" id="acrossFromSchool" value="acrossFromSchool" required>
+                                        <i>學校對面</i>
+                                    </li>
+                                </label>
+
+                                <label for="trainStation">
+                                    <li>
+                                        <input type="radio" name="where" id="trainStation" value="trainStation" required>
+                                        <i>火車站旁</i>
+                                    </li>
+                                </label>
+
+                                <label for="nightmarket">
+                                    <li>
+                                        <input type="radio" name="where" id="nightmarket" value="nightmarket" required>
+                                        <i>夜市</i>
+                                    </li>
+                                </label>
+
+                                <label for="other">
+                                    <li>
+                                        <input type="radio" name="where" id="other" value="other" required>
+                                        <i>其他</i>
+                                    </li>
+                                </label>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h4>滿意度</h4>
+                    <div class="sliderBox">
+                        <input type="range" min="0" max="10" value="5" class="slider" id="sliderBar" >
+                        <div id="colorBox"></div>
+                        <i id="output">0</i>
+                    </div>
+
+                    <h4>訂位資訊</h4>
+                    <div class="info">
+                        <label for="name"><span>*</span>您的大名</label>
+                        <input type="text" id="name" required>
+
+                        <label for="phone"><span>*</span>電話</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+
+                    <input type="button" value="送出" class="ok">
+                </div>
+            </form>
+        </div>
+
+        <b>~感謝您的填寫~</b>
+    </div>
+
+    <div class="w footer">
+        <i>2020/8/15製</i>
+    </div>
+</body>
+
+<script>
+    var slider = document.getElementById("sliderBar");
+    var output = document.getElementById("output");
+    var colorWidth = document.getElementById("colorBox");
+
+    output.innerHTML = slider.value;
+    colorWidth.style.width = slider.value * 8 + "%";
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+        colorWidth.style.width = this.value * 8 + "%";
+    }
+</script>
+
+</html>
